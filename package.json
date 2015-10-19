@@ -1,7 +1,22 @@
 {
     "name": "wcjs-renderer",
-    "version": "0.1.0",
-    "dependencies": {
-        "webchimera.js": "*"
+    "description": "renderer for WebChimera.js",
+    "version": "0.1.6",
+    "license" : "MIT",
+    "author": "Sergey Radionov <rsatom@gmail.com>",
+    "keywords": [
+        "video",
+        "renderer",
+        "webchimera",
+        "webchimera.js",
+        "vlc",
+        "libvlc"
+    ],
+    "repository": {
+        "type" : "git",
+        "url" : "https://github.com/RSATom/wcjs-renderer"
     },
+    "dependencies": {
+        "wcjs-prebuilt": "jaruba/wcjs-prebuilt"
+    }
 }
