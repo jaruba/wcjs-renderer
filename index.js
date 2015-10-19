@@ -137,6 +137,9 @@ function frameSetup(canvas, width, height, pixelFormat) {
 }
 
 module.exports = {
+    skipFrames: function(times) {
+        this.skip = parseInt(times);
+    },
     init: function(canvas, params, fallbackRenderer) {
         var vlc = require("wcjs-prebuilt").createPlayer(params);
 
@@ -180,8 +183,13 @@ module.exports = {
     
             };
 
+        setFrame = this;
         vlc.onFrameReady =
             function(videoFrame) {
+                if (setFrame.skip && setFrame.skip > 0) {
+                    setFrame.skip--;
+                    return;
+                }
                 (canvas.gl ? render : renderFallback)(canvas, videoFrame);
                 newFrame = true;
             };
